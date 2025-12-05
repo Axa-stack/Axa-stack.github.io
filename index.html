@@ -1,1 +1,319 @@
-HELLO FLX AI EDU
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Agilis események — Scrum Master Onepager</title>
+<style>
+  :root{
+    --bg:#eef8ff;         /* halvány kék háttér */
+    --text:#042a52;       /* sötétkék szöveg */
+    --card:#ffffff;
+    --accent:#d6ecff;
+    --muted:#6b7f93;
+    --radius:12px;
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text);}
+  .wrap{max-width:1100px;margin:36px auto;padding:28px;}
+  header{display:flex;align-items:center;gap:18px;margin-bottom:20px;}
+  header h1{margin:0;font-size:1.9rem;}
+  header p{margin:0;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:1fr 420px;gap:18px;}
+  /* bal oszlop: lista + naptár */
+  .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(2,24,46,0.06);}
+  .events-list h2,.calendar h2{margin:0 0 12px 0;}
+  details{border-radius:10px;padding:12px;margin-bottom:10px;background:linear-gradient(180deg,#fff,#f7fbff);box-shadow:0 2px 6px rgba(2,24,46,0.04);}
+  summary{cursor:pointer;font-weight:600;outline:none;display:flex;align-items:center;gap:12px}
+  .ev-meta{display:flex;gap:8px;align-items:center;}
+  .ev-img{width:68px;height:68px;border-radius:8px;overflow:hidden;flex:0 0 68px;}
+  .ev-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .ev-desc{color:var(--muted);font-size:0.95rem;margin-top:8px;line-height:1.45}
+  /* calendar */
+  .calendar-grid{margin-top:10px;}
+  .month-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+  .cal .day-title{text-align:center;font-size:0.85rem;color:var(--muted);padding:6px 0}
+  .day{min-height:90px;background:linear-gradient(180deg,#ffffff,#f8fdff);border-radius:10px;padding:8px;position:relative;overflow:hidden}
+  .date-num{position:absolute;top:8px;right:8px;font-size:0.85rem;color:var(--muted)}
+  .event-pill{display:inline-block;padding:6px 8px;border-radius:999px;font-size:0.82rem;margin:6px 0;cursor:default;background:var(--accent);color:var(--text);box-shadow:0 4px 12px rgba(2,24,46,0.06)}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .legend .item{display:flex;gap:8px;align-items:center;font-size:0.9rem;color:var(--muted)}
+  .dot{width:12px;height:12px;border-radius:50%}
+  /* jobb oszlop: nagy illusztráció + rövid összefoglaló */
+  .hero-illu{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .hero-illu img{max-width:320px;border-radius:12px;box-shadow:0 10px 30px rgba(2,24,46,0.08)}
+  footer{margin-top:18px;color:var(--muted);font-size:0.9rem;text-align:center}
+  @media(max-width:980px){
+    .grid{grid-template-columns:1fr; }
+    .hero-illu img{max-width:100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div style="width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,#dff2ff,#cfeefe);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text)">SM</div>
+    <div>
+      <h1>Agilis események gyors áttekintése — Scrum Master</h1>
+      <p>Összegyűjtöttük a Scrum alapvető eseményeit. Kattints az egyes eseményekre a rövid leíráshoz, vagy nézd meg őket a naptárnézetben.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div>
+      <div class="card events-list">
+        <h2>Agilis események</h2>
+
+        <!-- Sprint Planning -->
+        <details open>
+          <summary>
+            <div class="ev-meta">
+              <div class="ev-img"><img src="https://stories.freepiklabs.com/storage/43315/Pitch-Meeting-(1)_Artboard-1.svg" alt="Sprint tervezés illusztráció"></div>
+              <div>
+                Sprint tervezés (Sprint Planning)
+                <div style="font-size:0.9rem;color:var(--muted)">A sprint céljának és a munkák kiválasztása</div>
+              </div>
+            </div>
+          </summary>
+          <div class="ev-desc">
+            A Sprint tervezés során a csapat és a Product Owner közösen kiválasztja a sprint célját és a sprintben elvégzendő backlog tételeket. A tervezés során a csapat becslést ad és felosztja a munkát. Általában a sprint első napján történik.
+          </div>
+        </details>
+
+        <!-- Daily Scrum -->
+        <details>
+          <summary>
+            <div class="ev-meta">
+              <div class="ev-img"><img src="https://stories.freepiklabs.com/storage/30106/Meeting-01.svg" alt="Napi standup illusztráció" onerror="this.src='https://stories.freepiklabs.com/storage/47114/pitch-meeting-rafiki-7350.png'"></div>
+              <div>
+                Napi Scrum / Daily Standup
+                <div style="font-size:0.9rem;color:var(--muted)">Rövid napi szinkronizáció</div>
+              </div>
+            </div>
+          </summary>
+          <div class="ev-desc">
+            Rövid, legfeljebb 15 perces álló megbeszélés: mindenki elmondja, mit tett tegnap, mit fog tenni ma, és vannak-e akadályok. Célja a gyors szinkron és az akadályok feltárása.
+          </div>
+        </details>
+
+        <!-- Sprint Review -->
+        <details>
+          <summary>
+            <div class="ev-meta">
+              <div class="ev-img"><img src="https://stories.freepiklabs.com/storage/4016/283-Online-Review_Artboard-1.svg" alt="Sprint review illusztráció"></div>
+              <div>
+                Sprint Review
+                <div style="font-size:0.9rem;color:var(--muted)">Bemutató és visszajelzés</div>
+              </div>
+            </div>
+          </summary>
+          <div class="ev-desc">
+            A sprint végén tartott esemény, ahol a fejlesztett funkciókat bemutatják az érintetteknek, és visszajelzést gyűjtenek a további fejlesztésekhez. A cél: az elkészült munkát demonstrálni és a következő prioritásokat megerősíteni.
+          </div>
+        </details>
+
+        <!-- Sprint Retrospective -->
+        <details>
+          <summary>
+            <div class="ev-meta">
+              <div class="ev-img"><img src="https://stories.freepiklabs.com/storage/6444/326-Questions_Artboard-1.svg" alt="Retrospektív illusztráció"></div>
+              <div>
+                Sprint retrospektív
+                <div style="font-size:0.9rem;color:var(--muted)">Folyamatfejlesztés és tanulságok</div>
+              </div>
+            </div>
+          </summary>
+          <div class="ev-desc">
+            A csapat belső eseménye, ahol visszatekintenek a sprintre: mi ment jól, mi nem, és milyen konkrét intézkedéseket tesznek a javulás érdekében. Célja a folyamatos fejlesztés.
+          </div>
+        </details>
+
+        <!-- Backlog Refinement -->
+        <details>
+          <summary>
+            <div class="ev-meta">
+              <div class="ev-img"><img src="https://stories.freepiklabs.com/storage/34164/552-Code-review_Artboard-1.svg" alt="Backlog refinement illusztráció"></div>
+              <div>
+                Backlog finomítás (Refinement)
+                <div style="font-size:0.9rem;color:var(--muted)">Tételek részletezése és priorizálása</div>
+              </div>
+            </div>
+          </summary>
+          <div class="ev-desc">
+            A Product Backlog rendszeres karbantartása: tételek részletes kidolgozása, becslése és priorizálása, hogy a sprint tervezés hatékony legyen. Nem feltétlenül sprint esemény — folyamatos tevékenység.
+          </div>
+        </details>
+
+      </div>
+
+      <!-- naptár -->
+      <div class="card calendar" style="margin-top:14px;">
+        <div class="month-nav">
+          <h2>Naptárnézet</h2>
+          <div style="font-size:0.95rem;color:var(--muted)">(A böngésződ dátuma szerint)</div>
+        </div>
+
+        <div id="calendar" class="calendar-grid">
+          <!-- JavaScript tölti be ide a naptárat -->
+          <div id="cal-root" class="cal"></div>
+          <div class="legend">
+            <div class="item"><span class="dot" style="background:#cfe9ff"></span> Sprint tervezés</div>
+            <div class="item"><span class="dot" style="background:#bfe6d8"></span> Napi standup</div>
+            <div class="item"><span class="dot" style="background:#ffdca3"></span> Review</div>
+            <div class="item"><span class="dot" style="background:#f5c7ff"></span> Retrospektív</div>
+            <div class="item"><span class="dot" style="background:#e2e8ff"></span> Backlog refinement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card hero-illu">
+        <h2>Gyors áttekintés</h2>
+        <img src="https://stories.freepiklabs.com/storage/47110/pitch-meeting-amico-7335.png" alt="Csapatmegbeszélés illusztráció">
+        <p style="margin:0;color:var(--muted)">Használd a naptárnézetet a sprint események gyors vizuális tervezéséhez. A lenyíló elemekben találod a rövid magyarázatokat, és minden eseményhez Storyset illusztrációkat csatoltunk.</p>
+        <div style="margin-top:12px;font-size:0.9rem;color:var(--muted)">Illusztrációk: Storyset.</div>
+      </div>
+
+      <div class="card" style="margin-top:14px;">
+        <h3>Használati tippek</h3>
+        <ul style="color:var(--muted);line-height:1.5">
+          <li>Dobj be saját dátumokat vagy eseményeket a kódban, ha konkrét sprinted van.</li>
+          <li>A Storyset illusztrációk szabadon testreszabhatók és letölthetők a Storyset szerkesztőjéből.</li>
+          <li>Mobilon a naptár egy oszlopban jelenik meg a jobb olvashatóságért.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div>Forrás az illusztrációkhoz: Storyset (testreszabható vektorok). Képek: storyset.com</div>
+  </footer>
+</div>
+
+<script>
+/*
+  Egyszerű kliens-oldali naptár logika:
+  - Megjeleníti az aktuális hónapot és napokat
+  - Hozzárendel néhány minta eseményt a hónap napjaihoz (Sprint Planning, Daily, Review, Retrospective, Refinement)
+  - A napi események kis "pill" címkekként jelennek meg.
+  (A kód egyszerű és könnyen módosítható — cseréld a dátumokat vagy a logikát szükség szerint.)
+*/
+
+function buildCalendar() {
+  const root = document.getElementById('cal-root');
+  root.innerHTML = '';
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth(); // 0-indexelt
+  // hónap első napja és utolsó napja
+  const first = new Date(year, month, 1);
+  const last = new Date(year, month+1, 0);
+  const startWeekday = first.getDay(); // 0 vasárnap
+  const daysInMonth = last.getDate();
+
+  // napok fejlécei (Hétfő-szombat, magyar)
+  const dayTitles = ['Vas','H','K','Sze','Cs','P','Szo'];
+  for (let d of dayTitles) {
+    const el = document.createElement('div');
+    el.className = 'day-title';
+    el.textContent = d;
+    root.appendChild(el);
+  }
+
+  // kitöltő üres napok a hónap elején (ha a hónap vasárnappal kezdődik, startWeekday=0)
+  let blanks = startWeekday; // ha vasárnap 0 -> 0 blank, azért hagyjuk így
+  for (let i=0;i<blanks;i++){
+    const el = document.createElement('div');
+    el.className = 'day';
+    el.style.opacity = '0.25';
+    root.appendChild(el);
+  }
+
+  // generáljuk a napokat
+  // egyszerű példa-elosztás eseményekre:
+  // Sprint Planning -> 1. hétfő   (ha nincs hétfő: első nap)
+  // Daily -> minden hétköznap (kis címke)
+  // Review -> utolsó péntek
+  // Retrospective -> utolsó szombat vagy utolsó nap
+  // Refinement -> középső szerda
+  const firstMonday = (() => {
+    for (let i=1;i<=7;i++){
+      const d = new Date(year,month,i);
+      if (d.getDay()===1) return i;
+    }
+    return 1;
+  })();
+  const mid = Math.ceil(daysInMonth/2);
+  // utolsó péntek:
+  let lastFriday = null;
+  for (let i=daysInMonth;i>daysInMonth-7;i--){
+    const d = new Date(year,month,i);
+    if (d.getDay()===5){ lastFriday = i; break; }
+  }
+  if (!lastFriday) lastFriday = daysInMonth;
+
+  // utolsó nap (retrospective lehet)
+  const lastDay = daysInMonth;
+
+  for (let day=1; day<=daysInMonth; day++){
+    const el = document.createElement('div');
+    el.className = 'day';
+    const dateNum = document.createElement('div');
+    dateNum.className = 'date-num';
+    dateNum.textContent = day;
+    el.appendChild(dateNum);
+
+    // események logika
+    const tags = [];
+    // daily -> minden hétköznap (H-P)
+    const weekday = new Date(year,month,day).getDay();
+    if (weekday>=1 && weekday<=5) tags.push({t:'Napi standup',c:'#bfe6d8'});
+    // sprint planning -> első hétfő
+    if (day === firstMonday) tags.push({t:'Sprint tervezés',c:'#cfe9ff'});
+    // refinement -> középső szerda (ha az a nap szerda)
+    const midWed = (() => {
+      // keresünk a középső hét szerda körül
+      for (let offset=0; offset<7; offset++){
+        const cand = mid + (offset-3);
+        if (cand>=1 && cand<=daysInMonth){
+          if (new Date(year,month,cand).getDay()===3) return cand;
+        }
+      }
+      return Math.min(daysInMonth, Math.max(1, mid));
+    })();
+    if (day === midWed) tags.push({t:'Backlog finomítás',c:'#e2e8ff'});
+
+    // Review -> utolsó péntek
+    if (day === lastFriday) tags.push({t:'Sprint Review',c:'#ffdca3'});
+    // Retrospective -> utolsó nap
+    if (day === lastDay) tags.push({t:'Retrospektív',c:'#f5c7ff'});
+
+    // megjelenítés
+    tags.slice(0,3).forEach(tag=>{
+      const pill = document.createElement('span');
+      pill.className = 'event-pill';
+      pill.textContent = tag.t;
+      pill.style.background = tag.c;
+      el.appendChild(pill);
+    });
+
+    // kattintható részlet — tooltip-szerű egyszerű alert
+    el.addEventListener('click', (e)=>{
+      if (tags.length){
+        const lines = tags.map(x=>x.t).join('\\n• ');
+        alert(`Események ${year}.${month+1}.${day}:\\n• ${lines}`);
+      }
+    });
+
+    root.appendChild(el);
+  }
+}
+
+// inicializáljuk a naptárat
+buildCalendar();
+</script>
+</body>
+</html>
+
